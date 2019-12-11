@@ -10,11 +10,7 @@ import { PizzaLoaderService } from './services/pizza-loader.service';
   selector: 'app-pizza-form-container',
   templateUrl: './pizza-form-container.component.html',
   styleUrls: ['./pizza-form-container.component.scss'],
-  providers: [
-    PizzaFormService,
-    PizzaFormValidatorsService,
-    PizzaLoaderService
-  ]
+  providers: [PizzaFormService, PizzaFormValidatorsService, PizzaLoaderService],
 })
 export class PizzaFormContainerComponent implements OnInit {
   editMode = false;
@@ -25,13 +21,15 @@ export class PizzaFormContainerComponent implements OnInit {
   get selectedPizzaGroup(): AbstractControl {
     if (!this.pizzaFormService.pizzasArray.length) return;
 
-    return this.pizzaFormService.pizzasArray.at(this.form.get('selectedPizza').value);
+    return this.pizzaFormService.pizzasArray.at(
+      this.form.get('selectedPizza').value,
+    );
   }
 
   constructor(
     private pizzaLoaderService: PizzaLoaderService,
-    private pizzaFormService: PizzaFormService
-  ) { }
+    private pizzaFormService: PizzaFormService,
+  ) {}
 
   ngOnInit() {
     // here you can check the page url if a pizza order id was specified
@@ -46,9 +44,13 @@ export class PizzaFormContainerComponent implements OnInit {
       return;
     }
 
-    const order: IPizzaFormInterface = this.pizzaFormService.createPizzaOrderDto(data);
+    const order: IPizzaFormInterface = this.pizzaFormService.createPizzaOrderDto(
+      data,
+    );
 
-    alert(`Thanks ${order.customerDetails.firstName}, the pizza is on the way!`);
+    alert(
+      `Thanks ${order.customerDetails.firstName}, the pizza is on the way!`,
+    );
 
     if (this.editMode) {
       // update api endpoint call
@@ -63,7 +65,9 @@ export class PizzaFormContainerComponent implements OnInit {
 
   onPizzaAdd() {
     this.pizzaFormService.addPizza();
-    this.pizzaFormService.selectPizzaForEdit(this.pizzaFormService.pizzasArray.length - 1);
+    this.pizzaFormService.selectPizzaForEdit(
+      this.pizzaFormService.pizzasArray.length - 1,
+    );
   }
 
   onPizzaDelete(index: number) {

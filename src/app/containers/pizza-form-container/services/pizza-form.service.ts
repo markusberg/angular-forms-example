@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PizzaFormValidatorsService } from './pizza-form-validators.service';
-import { IPizzaFormInterface, IToppingItem, PizzaSizeEnum, PizzaToppingsEnum } from './pizza-form.interface';
+import {
+  IPizzaFormInterface,
+  IToppingItem,
+  PizzaSizeEnum,
+  PizzaToppingsEnum,
+} from './pizza-form.interface';
 
 @Injectable()
 export class PizzaFormService {
@@ -10,25 +15,28 @@ export class PizzaFormService {
 
   constructor(
     private pizzaValidatorsService: PizzaFormValidatorsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
-    this.form = this.fb.group({
-      selectedPizza: null,
-      pizzas: this.fb.array([]),
-      customerDetails: this.fb.group({
-        firstName: [null, Validators.required],
-        lastName: [null, Validators.required],
-        phoneNumber: [null, Validators.required],
-        address: this.fb.group({
-          street: [null, Validators.required],
-          houseNum: [null, Validators.required],
-          city: [null, Validators.required],
-          floor: [null, Validators.required],
-        })
-      })
-    }, {
-      validator: this.pizzaValidatorsService.formValidator()
-    });
+    this.form = this.fb.group(
+      {
+        selectedPizza: null,
+        pizzas: this.fb.array([]),
+        customerDetails: this.fb.group({
+          firstName: [null, Validators.required],
+          lastName: [null, Validators.required],
+          phoneNumber: [null, Validators.required],
+          address: this.fb.group({
+            street: [null, Validators.required],
+            houseNum: [null, Validators.required],
+            city: [null, Validators.required],
+            floor: [null, Validators.required],
+          }),
+        }),
+      },
+      {
+        validator: this.pizzaValidatorsService.formValidator(),
+      },
+    );
   }
 
   get pizzasArray(): FormArray {
@@ -63,12 +71,15 @@ export class PizzaFormService {
   }
 
   getPizzaFormGroup(size: PizzaSizeEnum = PizzaSizeEnum.MEDIUM): FormGroup {
-    return this.fb.group({
-      size: [size],
-      toppings: this.mapToCheckboxArrayGroup(this.availableToppings)
-    }, {
-      validator: this.pizzaValidatorsService.pizzaItemValidator()
-    });
+    return this.fb.group(
+      {
+        size: [size],
+        toppings: this.mapToCheckboxArrayGroup(this.availableToppings),
+      },
+      {
+        validator: this.pizzaValidatorsService.pizzaItemValidator(),
+      },
+    );
   }
 
   /**
@@ -80,14 +91,15 @@ export class PizzaFormService {
   createPizzaOrderDto(data: IPizzaFormInterface): IPizzaFormInterface {
     const order = {
       customerDetails: data.customerDetails,
-      pizzas: data.pizzas
+      pizzas: data.pizzas,
     };
 
     for (const pizza of order.pizzas) {
-      pizza.toppings = this.getSelectedToppings(pizza.toppings as IToppingItem[])
-        .map((i) => {
-          return i.name;
-        });
+      pizza.toppings = this.getSelectedToppings(
+        pizza.toppings as IToppingItem[],
+      ).map(i => {
+        return i.name;
+      });
     }
 
     return order;
@@ -112,11 +124,13 @@ export class PizzaFormService {
    * as oppose to working with [true, false, false, true]
    */
   private mapToCheckboxArrayGroup(data: string[]): FormArray {
-    return this.fb.array(data.map((i) => {
-      return this.fb.group({
-        name: i,
-        selected: false
-      });
-    }));
+    return this.fb.array(
+      data.map(i => {
+        return this.fb.group({
+          name: i,
+          selected: false,
+        });
+      }),
+    );
   }
 }

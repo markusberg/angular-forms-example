@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { FormArray, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 import { IToppingItem, PizzaSizeEnum } from './pizza-form.interface';
 
 @Injectable()
 export class PizzaFormValidatorsService {
-
-  constructor() { }
+  constructor() {}
 
   formValidator(): ValidatorFn {
     return (control: FormGroup): ValidationErrors | null => {
@@ -13,7 +18,7 @@ export class PizzaFormValidatorsService {
 
       if (!(control.get('pizzas') as FormArray).length) {
         errors.noPizzas = {
-          message: 'You must select at least one pizza to order'
+          message: 'You must select at least one pizza to order',
         };
       }
 
@@ -26,11 +31,13 @@ export class PizzaFormValidatorsService {
       const errors: ValidationErrors = {};
 
       const pizzaSize: PizzaSizeEnum = control.get('size').value;
-      const pizzaToppings: IToppingItem[] = control.get('toppings').value.filter(i => i.selected);
+      const pizzaToppings: IToppingItem[] = control
+        .get('toppings')
+        .value.filter(i => i.selected);
 
       if (pizzaSize !== PizzaSizeEnum.LARGE && pizzaToppings.length > 4) {
         errors.toppingPizzaSize = {
-          message: 'To use more then 4 toppings you must selected large pizza'
+          message: 'To use more then 4 toppings you must selected large pizza',
         };
       }
 

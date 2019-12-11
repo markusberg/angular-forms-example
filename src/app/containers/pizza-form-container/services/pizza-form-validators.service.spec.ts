@@ -10,13 +10,16 @@ describe('PizzaFormValidatorsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [],
-      providers: [PizzaFormValidatorsService]
+      providers: [PizzaFormValidatorsService],
     });
   });
 
-  beforeEach(inject([PizzaFormValidatorsService], (service: PizzaFormValidatorsService) => {
-    validatorService = service;
-  }));
+  beforeEach(inject(
+    [PizzaFormValidatorsService],
+    (service: PizzaFormValidatorsService) => {
+      validatorService = service;
+    },
+  ));
 
   describe('Form Validator', () => {
     let formValidator: ValidatorFn;
@@ -25,19 +28,21 @@ describe('PizzaFormValidatorsService', () => {
     });
 
     it('should return error when there is no pizza', () => {
-      const result = formValidator(new FormGroup({
-        pizzas: new FormArray([])
-      }));
+      const result = formValidator(
+        new FormGroup({
+          pizzas: new FormArray([]),
+        }),
+      );
 
       expect(result.noPizzas).toBeTruthy();
     });
 
     it('should not return error when pizzas exist', () => {
-      const result = formValidator(new FormGroup({
-        pizzas: new FormArray([
-          new FormGroup({})
-        ])
-      }));
+      const result = formValidator(
+        new FormGroup({
+          pizzas: new FormArray([new FormGroup({})]),
+        }),
+      );
 
       expect(result).toBe(null);
     });

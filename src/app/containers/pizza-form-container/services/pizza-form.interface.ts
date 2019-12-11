@@ -35,7 +35,7 @@ export interface ICustomerDetails {
 export enum PizzaSizeEnum {
   SMALL = 1,
   MEDIUM = 2,
-  LARGE = 3
+  LARGE = 3,
 }
 
 export enum PizzaToppingsEnum {
@@ -46,5 +46,5 @@ export enum PizzaToppingsEnum {
   BACON = 'Bacon',
   CORN = 'Corn',
   PINEAPPLE = 'Pineapple',
-  MUSHROOMS = 'Mushrooms'
+  MUSHROOMS = 'Mushrooms',
 }

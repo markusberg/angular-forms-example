@@ -8,7 +8,7 @@ import {
   MatInputModule,
   MatListModule,
   MatSelectModule,
-  MatToolbarModule
+  MatToolbarModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -20,7 +20,6 @@ import { PizzaListComponent } from './components/pizza-list/pizza-list.component
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { PizzaSizePickerComponent } from './components/pizza-size-picker/pizza-size-picker.component';
 
-
 export const APP_MODULE_DECLARATIONS = [
   AppComponent,
   PizzaFormContainerComponent,
@@ -28,7 +27,7 @@ export const APP_MODULE_DECLARATIONS = [
   SelectedPizzaViewerComponent,
   PizzaListComponent,
   CustomerDetailsComponent,
-  PizzaSizePickerComponent
+  PizzaSizePickerComponent,
 ];
 
 export const APP_MODULE_IMPORTS = [
@@ -43,5 +42,5 @@ export const APP_MODULE_IMPORTS = [
   MatListModule,
   MatToolbarModule,
   BrowserModule,
-  BrowserAnimationsModule
+  BrowserAnimationsModule,
 ];

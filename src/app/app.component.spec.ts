@@ -1,13 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { APP_MODULE_DECLARATIONS, APP_MODULE_IMPORTS } from './app.module.dependencies';
+import {
+  APP_MODULE_DECLARATIONS,
+  APP_MODULE_IMPORTS,
+} from './app.module.dependencies';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [...APP_MODULE_IMPORTS],
-      declarations: [
-        ...APP_MODULE_DECLARATIONS
-      ],
+      declarations: [...APP_MODULE_DECLARATIONS],
     }).compileComponents();
   }));
 
@@ -23,7 +24,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-forms-example');
   }));
 
-/*  it('should render title in a h1 tag', async(() => {
+  /*  it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
