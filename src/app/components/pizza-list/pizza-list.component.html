@@ -1,31 +1,24 @@
-
-<div class="row" [formGroup]="group">
-  <div class="col-md-12">
-    <div class="PizzaList">
-      <div class="PizzaList__title">
-        <h2>
-          Pizzas order
-        </h2>
+<div [formGroup]="group">
+  <h2>Pizzas order</h2>
+  <div formArrayName="pizzas">
+    <button
+      *ngFor="let pizza of pizzasArray.controls; let i = index"
+      class="btn btn-block pizza-button"
+      [ngClass]="getClass(pizza, i)"
+      (click)="pizzaSelected.emit(i)"
+      [formGroup]="pizza"
+    >
+      <div class="pizza-title">
+        {{ getPizzaTitle(pizza.value) }}
       </div>
-      <div class="PizzaList__content" formArrayName="pizzas">
-        <div class="PizzaList__item"
-             *ngFor="let pizza of pizzasArray.controls; let i = index;"
-             [ngClass]="getPizzaListItemClassStates(pizza, i)"
-             (click)="pizzaSelected.emit(i)"
-             [formGroup]="pizza">
-          <span>
-            {{getPizzaTitle(pizza.value)}}
-          </span>
 
-          <button mat-icon-button (click)="deletePizza.emit(i); $event.stopPropagation()">
-            <mat-icon class="PizzaList__item__icon">remove_circle</mat-icon>
-          </button>
-        </div>
-
-        <div class="PizzaList__item PizzaList__item--add" (click)="addPizza.emit()">
-          <mat-icon class="PizzaList__item__icon">add_circle</mat-icon>
-        </div>
+      <div (click)="deletePizza.emit(i); $event.stopPropagation()">
+        <fa-icon [icon]="faMinusCircle"></fa-icon>
       </div>
-    </div>
+    </button>
+
+    <button class="btn btn-success btn-block" (click)="addPizza.emit()">
+      <fa-icon [icon]="faPlusCircle">add_circle</fa-icon>
+    </button>
   </div>
 </div>
