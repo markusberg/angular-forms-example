@@ -1,23 +1,5 @@
-.full-width-input {
-  width: 100%;
-}
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
 
-.mg-top-15 {
-  margin-top: 15px;
-}
-
-.mg-bottom-15 {
-  margin-bottom: 15px;
-}
-
-.pull-right {
-  float: right;
-}
-
-.ValidationErrorLabel {
-  width: 100%;
-  background: #d42434;
-  color: white;
-  padding: 15px;
-  border-radius: 3px;
+.ng-touched.ng-invalid {
+  @extend .is-invalid;
 }
