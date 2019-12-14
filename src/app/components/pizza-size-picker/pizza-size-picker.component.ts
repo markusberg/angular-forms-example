@@ -10,19 +10,19 @@ import { PizzaSizeEnum } from '../../containers/pizza-form-container/services/pi
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PizzaSizePickerComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class PizzaSizePickerComponent implements ControlValueAccessor {
-  pizzaSize: PizzaSizeEnum;
+  pizzaSize: PizzaSizeEnum = PizzaSizeEnum.MEDIUM;
   PizzaSizeEnum = PizzaSizeEnum;
 
-  constructor() { }
+  constructor() {}
 
-  changeSize(size: PizzaSizeEnum) {
-    this.pizzaSize = size;
-    this.propagateChange(size);
+  changeSize() {
+    console.log(this.pizzaSize);
+    this.propagateChange(this.pizzaSize);
   }
 
   propagateChange = (value: PizzaSizeEnum) => {};

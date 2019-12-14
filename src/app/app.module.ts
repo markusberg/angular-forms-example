@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {
   APP_MODULE_DECLARATIONS,
@@ -9,7 +10,7 @@ import {
 
 @NgModule({
   declarations: [...APP_MODULE_DECLARATIONS],
-  imports: [FontAwesomeModule, ...APP_MODULE_IMPORTS],
+  imports: [FontAwesomeModule, NgbButtonsModule, ...APP_MODULE_IMPORTS],
   providers: [],
   bootstrap: [AppComponent],
 })
