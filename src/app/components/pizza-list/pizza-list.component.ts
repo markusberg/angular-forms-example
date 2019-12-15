@@ -56,7 +56,7 @@ export class PizzaListComponent implements OnInit {
   private getToppingsString(toppings: string[]): string {
     if (!toppings || !toppings.length) return '';
 
-    return `- ${toppings.toString()}`;
+    return `- ${toppings.join(', ')}`;
   }
 
   private getPizzaSizeTitle(size: PizzaSizeEnum): string {

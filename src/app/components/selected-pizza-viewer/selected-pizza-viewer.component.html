@@ -1,34 +1,51 @@
-<div class="PizzaSelectorView" [ngClass]="{ 'PizzaSelectorView--empty': !selectedPizzaGroup }">
-  <div class="row" *ngIf="selectedPizzaGroup" [formGroup]="selectedPizzaGroup">
-    <div class="col-md-12" *ngIf="selectedPizzaGroup.errors?.toppingPizzaSize">
-      <div  class="ValidationErrorLabel mg-bottom-15">
-        {{selectedPizzaGroup.errors?.toppingPizzaSize?.message}}
-      </div>
+<div class="card bg-light">
+  <div
+    class="card-body"
+    *ngIf="selectedPizzaGroup"
+    [formGroup]="selectedPizzaGroup"
+  >
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="selectedPizzaGroup.errors?.toppingPizzaSize"
+    >
+      {{ selectedPizzaGroup.errors?.toppingPizzaSize?.message }}
     </div>
-    <div class="col-md-6 offset-md-3">
+
+    <div class="text-center">
       <app-pizza-size-picker formControlName="size"></app-pizza-size-picker>
     </div>
-    <div class="col-md-12 mg-top-15">
-      <h5>Toppings</h5>
-      <div class="ToppingsSelector" formArrayName="toppings">
-        <div class="ToppingsSelector__item" *ngFor="let topping of toppingsArray.controls" [formGroup]="topping" >
-          <mat-checkbox [formControl]="topping.get('selected')">
-            {{topping.get('name').value}}
-          </mat-checkbox>
+
+    <h5>Toppings</h5>
+    <div class="toppings-selector" formArrayName="toppings">
+      <div
+        class="mr-3"
+        *ngFor="let topping of toppingsArray.controls"
+        [formGroup]="topping"
+      >
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [formControl]="topping.get('selected')"
+              [id]="topping.get('name').value"
+            />
+            <label class="form-check-label" [for]="topping.get('name').value">
+              {{ topping.get('name').value }}
+            </label>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="!selectedPizzaGroup" style="height: 100%">
-    <div class="PizzaSelectorView__no-selected">
-      <h4>
-        You have not selected any pizzas yet.
-      </h4>
-      <button mat-button  color="primary" (click)="addPizza.emit()">
-        <mat-icon>add_circle</mat-icon>
-        Add one
-      </button>
-    </div>
+
+  <div class="card-body text-center" *ngIf="!selectedPizzaGroup">
+    <h4>
+      You have not selected any pizzas yet.
+    </h4>
+    <button class="btn btn-success" (click)="addPizza.emit()">
+      <fa-icon [icon]="faPlusCircle"></fa-icon> Add one
+    </button>
   </div>
 </div>
-

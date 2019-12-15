@@ -37,7 +37,7 @@ export class PizzaFormValidatorsService {
 
       if (pizzaSize !== PizzaSizeEnum.LARGE && pizzaToppings.length > 4) {
         errors.toppingPizzaSize = {
-          message: 'To use more then 4 toppings you must selected large pizza',
+          message: 'To use more than 4 toppings you must select a large pizza',
         };
       }
 
