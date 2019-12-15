@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PizzaFormContainerComponent } from './components/pizza-form-container/pizza-form-container.component';
 import { PizzaListComponent } from './components/pizza-list/pizza-list.component';
 import { PizzaSizePickerComponent } from './components/pizza-size-picker/pizza-size-picker.component';
-import { SelectedPizzaViewerComponent } from './components/selected-pizza-viewer/selected-pizza-viewer.component';
+import { PizzaEditorComponent } from './components/pizza-editor/pizza-editor.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { SelectedPizzaViewerComponent } from './components/selected-pizza-viewer
     PizzaFormContainerComponent,
     PizzaListComponent,
     PizzaSizePickerComponent,
-    SelectedPizzaViewerComponent,
+    PizzaEditorComponent,
   ],
   imports: [
     BrowserAnimationsModule,

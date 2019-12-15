@@ -8,7 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PizzaFormContainerComponent } from './components/pizza-form-container/pizza-form-container.component';
 import { PizzaListComponent } from './components/pizza-list/pizza-list.component';
 import { PizzaSizePickerComponent } from './components/pizza-size-picker/pizza-size-picker.component';
-import { SelectedPizzaViewerComponent } from './components/selected-pizza-viewer/selected-pizza-viewer.component';
+import { PizzaEditorComponent } from './components/pizza-editor/pizza-editor.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 describe('AppComponent', () => {
@@ -19,10 +19,10 @@ describe('AppComponent', () => {
         CustomerDetailsComponent,
         FaIconComponent,
         NavbarComponent,
+        PizzaEditorComponent,
         PizzaFormContainerComponent,
         PizzaListComponent,
         PizzaSizePickerComponent,
-        SelectedPizzaViewerComponent,
       ],
       imports: [FormsModule, NgbModule, ReactiveFormsModule],
     }).compileComponents();

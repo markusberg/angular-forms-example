@@ -9,7 +9,6 @@ import { PizzaLoaderService } from '@services/pizza-loader.service';
 @Component({
   selector: 'app-pizza-form-container',
   templateUrl: './pizza-form-container.component.html',
-  styleUrls: ['./pizza-form-container.component.scss'],
   providers: [PizzaFormService, PizzaFormValidatorsService, PizzaLoaderService],
 })
 export class PizzaFormContainerComponent implements OnInit {

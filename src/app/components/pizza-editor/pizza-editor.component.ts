@@ -3,11 +3,11 @@ import { AbstractControl, FormArray } from '@angular/forms';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-selected-pizza-viewer',
-  templateUrl: './selected-pizza-viewer.component.html',
-  styleUrls: ['./selected-pizza-viewer.component.scss'],
+  selector: 'app-pizza-editor',
+  templateUrl: './pizza-editor.component.html',
+  styleUrls: ['./pizza-editor.component.scss'],
 })
-export class SelectedPizzaViewerComponent implements OnInit {
+export class PizzaEditorComponent implements OnInit {
   @Input() selectedPizzaGroup: AbstractControl;
   @Output() addPizza = new EventEmitter();
 

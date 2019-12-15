@@ -5,11 +5,11 @@
 
   <div class="row">
     <div class="col-md-8">
-      <app-selected-pizza-viewer
+      <app-pizza-editor
         (addPizza)="onPizzaAdd()"
         [selectedPizzaGroup]="selectedPizzaGroup"
       >
-      </app-selected-pizza-viewer>
+      </app-pizza-editor>
 
       <app-customer-details
         [group]="form.get('customerDetails')"
@@ -18,14 +18,14 @@
       <div class="row">
         <div class="col-md-12">
           <button class="btn btn-secondary" (click)="reset()">
-            RESET
+            Reset
           </button>
           <button
             type="button"
             class="btn btn-primary float-right"
             (click)="submit(form.value)"
           >
-            SUBMIT
+            Place order
           </button>
         </div>
       </div>
