@@ -6,8 +6,8 @@ import {
   IPizzaItem,
   IToppingItem,
   PizzaSizeEnum,
-} from '../../containers/pizza-form-container/services/pizza-form.interface';
-import { PizzaFormService } from '../../containers/pizza-form-container/services/pizza-form.service';
+} from '@services/pizza-form.interface';
+import { PizzaFormService } from '@services/pizza-form.service';
 
 @Component({
   selector: 'app-pizza-list',

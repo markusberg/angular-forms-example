@@ -1,6 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { FormArray, FormGroup, ValidatorFn } from '@angular/forms';
-import { AppModule } from '../../../app.module';
 
 import { PizzaFormValidatorsService } from './pizza-form-validators.service';
 

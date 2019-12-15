@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { DEMO_PIZZA } from './services/demo-pizza-item';
-import { PizzaFormValidatorsService } from './services/pizza-form-validators.service';
-import { IPizzaFormInterface } from './services/pizza-form.interface';
-import { PizzaFormService } from './services/pizza-form.service';
-import { PizzaLoaderService } from './services/pizza-loader.service';
+import { DEMO_PIZZA } from '@services/demo-pizza-item';
+import { PizzaFormValidatorsService } from '@services/pizza-form-validators.service';
+import { IPizzaFormInterface } from '@services/pizza-form.interface';
+import { PizzaFormService } from '@services/pizza-form.service';
+import { PizzaLoaderService } from '@services/pizza-loader.service';
 
 @Component({
   selector: 'app-pizza-form-container',
