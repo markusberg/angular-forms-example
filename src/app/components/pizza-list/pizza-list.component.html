@@ -12,7 +12,7 @@
         {{ getPizzaTitle(pizza.value) }}
       </div>
 
-      <div (click)="deletePizza.emit(i); $event.stopPropagation()">
+      <div (click)="deletePizza.emit(i)">
         <fa-icon [icon]="faMinusCircle"></fa-icon>
       </div>
     </button>

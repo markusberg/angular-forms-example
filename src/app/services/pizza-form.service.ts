@@ -121,7 +121,7 @@ export class PizzaFormService {
    * Create a mapping of a string based dataset
    * to a form array suitable for a multi checkbox array selection.
    * this provides a more concise solution
-   * as oppose to working with [true, false, false, true]
+   * as opposed to working with [true, false, false, true]
    */
   private mapToCheckboxArrayGroup(data: string[]): FormArray {
     return this.fb.array(

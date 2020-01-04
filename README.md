@@ -1,6 +1,6 @@
-# AngularFormsExample
+# Angular Forms Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+This project was originally generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3, and has since been upgraded to Angular 8.
 
 ## Development server
 
